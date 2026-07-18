@@ -5,8 +5,9 @@ import FormHeader from "./FormHeader";
 import FormUrl from "./FormUrl";
 import Password from "./Password";
 import UserName from "./UserName";
+import {formValidation} from '../../tools/formValidation.js'
 
-export default function BookMarkForm() {
+export default function BookMarkForm({ onAddValt }) {
   const defaultValue = {
     id: "",
     url: "",
@@ -18,6 +19,7 @@ export default function BookMarkForm() {
   };
 
   const [formData, setFormData] = useState(defaultValue);
+  const [error, setError] = useState({})
 
   const handleformChange = (eventTarget) => {
     const name = eventTarget.name;
@@ -69,6 +71,10 @@ export default function BookMarkForm() {
               <button
                 type="submit"
                 className="w-full rounded-full bg-blue-600 px-6 py-3 text-sm font-semibold text-white transition hover:bg-blue-500 md:w-auto"
+                onClick={(e) => {
+                  e.preventDefault();
+                  onAddValt(formData);
+                }}
               >
                 Add Bookmark
               </button>
