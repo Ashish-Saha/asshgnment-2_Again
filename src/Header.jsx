@@ -1,7 +1,27 @@
+const currentDate = new Date().toLocaleString("en-US", {
+  weekday: "long",
+  day: "2-digit",
+  month: "long",
+});
+
+const greetings = () => {
+  const date = new Date().getHours();
+
+  if (date >= 5 && date <= 11) {
+    return "Good Morning";
+  } else if (date >= 12 && date <= 16) {
+    return "Good Afternoon";
+  } else if (date >= 17 && date <= 20) {
+    return "Good Evening";
+  } else {
+    return "Good Night";
+  }
+};
+
 export default function Header() {
   return (
     <>
-      <header classNameName="border-b border-neutral-800 bg-gradient-to-b from-neutral-950 via-neutral-900/80 to-transparent">
+      <header className="border-b border-neutral-800 bg-gradient-to-b from-neutral-950 via-neutral-900/80 to-transparent">
         <div className="max-w-7xl mx-auto px-6 py-12 flex flex-col gap-8 lg:flex-row lg:items-center lg:justify-between">
           <div className="space-y-4">
             <p className="text-xs font-semibold uppercase tracking-[0.4em] text-blue-400">
@@ -9,11 +29,11 @@ export default function Header() {
             </p>
             <div className="flex flex-col gap-3 md:flex-row md:items-center">
               <h1 className="text-4xl font-semibold tracking-tight">
-                Good Morning, World!
+                {greetings()}, World!
               </h1>
               <span className="inline-flex items-center gap-2 rounded-full border border-neutral-800/80 bg-neutral-900/70 px-4 py-1 text-xs font-medium text-neutral-300">
                 <span className="h-2 w-2 rounded-full bg-emerald-400"></span>
-                Monday, Nov 10
+                {currentDate}
               </span>
             </div>
             <p className="text-sm text-neutral-400 max-w-2xl">

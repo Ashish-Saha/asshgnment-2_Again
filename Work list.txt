@@ -1,4 +1,4 @@
-1. Show Greetings as per Time & show date
+1. Show Greetings as per Time & show date     ---Done
 2. Form validation
 3. URL input Ok or Not
 4. Ensure 6 digit Password

@@ -1,3 +1,4 @@
+import { useState } from "react";
 import FormCategory from "./FormCategory";
 import FormFavColor from "./FormFavColor";
 import FormHeader from "./FormHeader";
@@ -6,6 +7,29 @@ import Password from "./Password";
 import UserName from "./UserName";
 
 export default function BookMarkForm() {
+  const defaultValue = {
+    id: "",
+    url: "",
+    favColor: "#3b82f6",
+    catagory: "",
+    userName: "",
+    password: "",
+    isMasking: false,
+  };
+
+  const [formData, setFormData] = useState(defaultValue);
+
+  const handleformChange = (eventTarget) => {
+    const name = eventTarget.name;
+    const value = eventTarget.value;
+
+    setFormData({
+      ...formData,
+      id: crypto.randomUUID(),
+      [name]: value,
+    });
+  };
+
   return (
     <>
       <div className="max-w-7xl mx-auto mt-8 px-4">
@@ -14,14 +38,20 @@ export default function BookMarkForm() {
 
           <div className="space-y-6">
             <div className="grid grid-cols-1 gap-6 lg:grid-cols-3">
-              <FormUrl />
-              <FormFavColor />
-              <FormCategory />
+              <FormUrl onFormChange={handleformChange} formData={formData} />
+              <FormFavColor
+                onFormChange={handleformChange}
+                formData={formData}
+              />
+              <FormCategory
+                onFormChange={handleformChange}
+                formData={formData}
+              />
             </div>
 
             <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
-              <UserName />
-              <Password />
+              <UserName onFormChange={handleformChange} formData={formData} />
+              <Password onFormChange={handleformChange} formData={formData} />
             </div>
           </div>
 
