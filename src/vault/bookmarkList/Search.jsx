@@ -1,4 +1,4 @@
-export default function Search() {
+export default function Search({ searchInput, onSearch }) {
   return (
     <>
       <section className="rounded-3xl border border-neutral-800 bg-gradient-to-br from-neutral-900/80 to-neutral-900/40 p-6 shadow-2xl shadow-black/40 backdrop-blur">
@@ -20,6 +20,8 @@ export default function Search() {
               </svg>
             </span>
             <input
+              value={searchInput}
+              onChange={(e) => onSearch(e.target.value)}
               type="text"
               placeholder="Search saved credentials"
               className="w-full rounded-2xl border border-neutral-800 bg-neutral-950/60 py-3 pl-11 pr-4 text-sm text-white placeholder:text-neutral-500 transition focus:border-blue-500 focus:bg-neutral-950 focus:outline-none"

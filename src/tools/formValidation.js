@@ -21,6 +21,10 @@ export function formValidation(formData, setError) {
 
   if (!formData.password.trim()) {
     newError.password = "Password is required";
+  }else{
+    if(formData.password.length < 6){
+      newError.password = "Password length should be min 6";
+    }
   }
 
   setError(newError);

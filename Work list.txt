@@ -1,12 +1,13 @@
 1. Show Greetings as per Time & show date     ---Done
-2. Form validation
-3. URL input Ok or Not
-4. Ensure 6 digit Password
-5. Show error msg in field lavel
+2. Form validation ----Done
+3. URL input Ok or Not --- Done
+4. Ensure 6 digit Password -- Done
+5. Show error msg in field lavel -- Done
 6. Clear button make interative
-7. Domain এর দুটি Chracter দিয়ে এবং সিলেক্ট করা কালার দিয়ে Template এ যেভাবে দেখানো হয়েছে সেভাবে Icon ডিজাইন করে দেখাতে হবে ।
-8. Form এর মধ্যে আমরা শুধু Website URL নিয়েছি, সাইটের নাম নেই নি । আপনাকে আপনার লজিক অনুযায়ী Website URL থেকে Name তৈরি করে নিতে হবে ।
-9. Make Reveal button for show password
+7. Domain এর দুটি Chracter দিয়ে এবং সিলেক্ট করা কালার দিয়ে Template এ যেভাবে দেখানো হয়েছে সেভাবে Icon ডিজাইন করে দেখাতে হবে । -- Done
+8. Form এর মধ্যে আমরা শুধু Website URL নিয়েছি, সাইটের নাম নেই নি । আপনাকে আপনার লজিক অনুযায়ী Website URL থেকে Name তৈরি করে নিতে হবে । --- Done
+9. Make Reveal button for show password --- Done
+
 10.Make search button interactive & show all items if cleat search data
 11. Show not found if no item found
 12. Sort button interactive 
