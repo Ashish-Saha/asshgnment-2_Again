@@ -14,21 +14,25 @@ export default function Vault() {
   };
 
   const [valtList, setVaultList] = useState([initialValue]);
+  
 
   //Add FormData to FormList
   const handleAddValt = (formData) => {
     setVaultList((prev) => [...prev, formData]);
+    
   };
 
   //Toggle isMasking to Revel Password
   const handleToggleMasking = (id) => {
-      const indexID = valtList.findIndex((item)=> item.id === id);
-      
-      let newValtList = [...valtList]
-          newValtList[indexID] = {...newValtList[indexID], isMasking : !newValtList[indexID].isMasking}
-          setVaultList(newValtList)
-  }
-  
+    const indexID = valtList.findIndex((item) => item.id === id);
+
+    let newValtList = [...valtList];
+    newValtList[indexID] = {
+      ...newValtList[indexID],
+      isMasking: !newValtList[indexID].isMasking,
+    };
+    setVaultList(newValtList);
+  };
 
   return (
     <>

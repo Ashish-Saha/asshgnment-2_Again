@@ -1,11 +1,11 @@
 import { useState } from "react";
+import { formValidation } from "../../tools/formValidation";
 import FormCategory from "./FormCategory";
 import FormFavColor from "./FormFavColor";
 import FormHeader from "./FormHeader";
 import FormUrl from "./FormUrl";
 import Password from "./Password";
 import UserName from "./UserName";
-import {formValidation} from '../../tools/formValidation.js'
 
 export default function BookMarkForm({ onAddValt }) {
   const defaultValue = {
@@ -19,7 +19,8 @@ export default function BookMarkForm({ onAddValt }) {
   };
 
   const [formData, setFormData] = useState(defaultValue);
-  const [error, setError] = useState({})
+  const [error, setError] = useState({});
+  console.log(error);
 
   const handleformChange = (eventTarget) => {
     const name = eventTarget.name;
@@ -32,6 +33,11 @@ export default function BookMarkForm({ onAddValt }) {
     });
   };
 
+  const handleClearForm = () => {
+    setFormData(defaultValue);
+    setError({});
+  };
+
   return (
     <>
       <div className="max-w-7xl mx-auto mt-8 px-4">
@@ -40,20 +46,22 @@ export default function BookMarkForm({ onAddValt }) {
 
           <div className="space-y-6">
             <div className="grid grid-cols-1 gap-6 lg:grid-cols-3">
-              <FormUrl onFormChange={handleformChange} formData={formData} />
+              <FormUrl onFormChange={handleformChange} formData={formData} error = {error}/>
               <FormFavColor
                 onFormChange={handleformChange}
                 formData={formData}
+                error = {error}
               />
               <FormCategory
                 onFormChange={handleformChange}
                 formData={formData}
+                error = {error}
               />
             </div>
 
             <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
-              <UserName onFormChange={handleformChange} formData={formData} />
-              <Password onFormChange={handleformChange} formData={formData} />
+              <UserName onFormChange={handleformChange} formData={formData} error = {error}/>
+              <Password onFormChange={handleformChange} formData={formData} error = {error}/>
             </div>
           </div>
 
@@ -65,6 +73,7 @@ export default function BookMarkForm({ onAddValt }) {
               <button
                 type="reset"
                 className="w-full rounded-full border border-neutral-700 px-6 py-3 text-sm font-semibold text-neutral-200 transition hover:border-neutral-500 hover:text-white md:w-auto"
+                onClick={handleClearForm}
               >
                 Clear
               </button>
@@ -73,7 +82,14 @@ export default function BookMarkForm({ onAddValt }) {
                 className="w-full rounded-full bg-blue-600 px-6 py-3 text-sm font-semibold text-white transition hover:bg-blue-500 md:w-auto"
                 onClick={(e) => {
                   e.preventDefault();
+                  const handleError = formValidation(formData, setError);
+                  if (!handleError) {
+                    return;
+                  }
+
                   onAddValt(formData);
+                  setFormData(defaultValue);
+                  setError({});
                 }}
               >
                 Add Bookmark
