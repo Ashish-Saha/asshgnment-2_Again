@@ -20,7 +20,7 @@ export default function BookMarkForm({ onAddValt }) {
 
   const [formData, setFormData] = useState(defaultValue);
   const [error, setError] = useState({});
-  console.log(error);
+
 
   const handleformChange = (eventTarget) => {
     const name = eventTarget.name;

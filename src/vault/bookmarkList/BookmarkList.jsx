@@ -7,23 +7,23 @@ import {
 import Search from "./Search";
 
 export default function BookmarkList({ valtList, ontoggle }) {
-  const [searchInput, setSearchInput] = useState('')
+  const [searchInput, setSearchInput] = useState("");
 
-  const filterSearch = ()=>{
-    valtList.filter((item)=>{
-      console.log(item);
-      
-    })
-  }
+  const filterSearch = [...valtList].filter(
+    (item) =>
+      item.userName.toLowerCase().includes(searchInput.toLowerCase()) ||
+      item.catagory.toLowerCase().includes(searchInput.toLowerCase()) ||
+      getDomainName(item.url).toLowerCase().includes(searchInput.toLowerCase()),
+  );
 
   return (
     <>
       <main className="p-8">
         <div className="max-w-7xl mx-auto space-y-10 px-4">
-          <Search searchInput={searchInput} onSearch= {setSearchInput}/>
+          <Search searchInput={searchInput} onSearch={setSearchInput} />
 
           <div className="grid grid-cols-1 gap-6 md:grid-cols-2 xl:grid-cols-3">
-            {valtList.map((valt) => (
+            {filterSearch.map((valt) => (
               <article
                 key={valt.id}
                 className="rounded-3xl border border-neutral-800 bg-neutral-900/70 p-6 shadow-2xl shadow-black/30 transition hover:-translate-y-1 hover:border-blue-500/60 hover:shadow-blue-500/20"
