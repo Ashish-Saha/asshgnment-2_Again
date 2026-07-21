@@ -8,7 +8,7 @@
 8. Form এর মধ্যে আমরা শুধু Website URL নিয়েছি, সাইটের নাম নেই নি । আপনাকে আপনার লজিক অনুযায়ী Website URL থেকে Name তৈরি করে নিতে হবে । --- Done
 9. Make Reveal button for show password --- Done
 
-10.Make search button interactive & show all items if cleat search data
+10.Make search button interactive & show all items if cleat search data --- Done
 11. Show not found if no item found
-12. Sort button interactive 
+12. Sort button interactive  
 13. Rewirite Md fire

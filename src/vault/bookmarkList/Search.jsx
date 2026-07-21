@@ -45,6 +45,21 @@ export default function Search({ searchInput, onSearch }) {
               </svg>
               Sort by
             </button>
+
+            <ul className="absolute top-17 rounded-xl border border-neutral-800/80 bg-neutral-900/80 px-4 py-2 text-xs font-semibold uppercase tracking-wide text-neutral-300 transition">
+                <li className="rounded-xl border border-neutral-800/80 bg-neutral-900/80 px-4 py-2 text-xs font-semibold uppercase tracking-wide text-neutral-300 transition hover:border-blue-500 hover:text-white">
+                  <button>Name A-Z</button>
+                </li>
+                <li className="rounded-xl border border-neutral-800/80 bg-neutral-900/80 px-4 py-2 text-xs font-semibold uppercase tracking-wide text-neutral-300 transition hover:border-blue-500 hover:text-white">
+                  <button>Name Z-A</button>
+                </li>
+                <li className="rounded-xl border border-neutral-800/80 bg-neutral-900/80 px-4 py-2 text-xs font-semibold uppercase tracking-wide text-neutral-300 transition hover:border-blue-500 hover:text-white">
+                  Date Newest
+                </li>
+                <li className="rounded-xl border border-neutral-800/80 bg-neutral-900/80 px-4 py-2 text-xs font-semibold uppercase tracking-wide text-neutral-300 transition hover:border-blue-500 hover:text-white">
+                Date Oldest
+              </li>
+            </ul>
           </div>
         </div>
       </section>
