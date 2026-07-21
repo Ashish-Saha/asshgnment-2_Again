@@ -3,7 +3,7 @@ export const getDomainName = (url) => {
     const hostname = new URL(url).hostname;
     let domainName = hostname.replace("www.", "").split(".")[0];
     return domainName.charAt(0).toUpperCase() + domainName.slice(1);
-  } catch (error) {
+  } catch {
     return;
   }
   //LIke Facebook
@@ -13,8 +13,8 @@ export const getHostname = (url) => {
   try {
     const hostname = new URL(url).hostname.split(".").slice(1).join(".");
     return hostname.charAt(0).toUpperCase() + hostname.slice(1);
-  } catch (error) {
-    return
+  } catch {
+    return;
   }
   //like Facebook.com
 };
@@ -34,7 +34,7 @@ export const webLogoName = (url) => {
     const name = hostName.split(".")[0];
 
     return mapping[name] || name.slice(0, 2).toUpperCase();
-  } catch (error) {
-    return
+  } catch {
+    return;
   }
 };

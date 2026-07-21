@@ -1,4 +1,8 @@
+import { useState } from "react";
+
 export default function Search({ searchInput, onSearch }) {
+  const [showSortOptions, setShowSortOptions] = useState(false);
+
   return (
     <>
       <section className="rounded-3xl border border-neutral-800 bg-gradient-to-br from-neutral-900/80 to-neutral-900/40 p-6 shadow-2xl shadow-black/40 backdrop-blur">
@@ -29,7 +33,10 @@ export default function Search({ searchInput, onSearch }) {
           </label>
 
           <div className="flex flex-wrap gap-2">
-            <button className="inline-flex items-center gap-2 rounded-2xl border border-neutral-800/80 bg-neutral-900/80 px-4 py-2 text-xs font-semibold uppercase tracking-wide text-neutral-300 transition hover:border-blue-500 hover:text-white">
+            <button
+              className="inline-flex items-center gap-2 rounded-2xl border border-neutral-800/80 bg-neutral-900/80 px-4 py-2 text-xs font-semibold uppercase tracking-wide text-neutral-300 transition hover:border-blue-500 hover:text-white"
+              onClick={() => setShowSortOptions(!showSortOptions)}
+            >
               <svg
                 className="h-4 w-4"
                 fill="none"
@@ -46,7 +53,8 @@ export default function Search({ searchInput, onSearch }) {
               Sort by
             </button>
 
-            <ul className="absolute top-17 rounded-xl border border-neutral-800/80 bg-neutral-900/80 px-4 py-2 text-xs font-semibold uppercase tracking-wide text-neutral-300 transition">
+            {showSortOptions && (
+              <ul className="absolute top-17 rounded-xl border border-neutral-800/80 bg-neutral-900/80 px-4 py-2 text-xs font-semibold uppercase tracking-wide text-neutral-300 transition">
                 <li className="rounded-xl border border-neutral-800/80 bg-neutral-900/80 px-4 py-2 text-xs font-semibold uppercase tracking-wide text-neutral-300 transition hover:border-blue-500 hover:text-white">
                   <button>Name A-Z</button>
                 </li>
@@ -54,12 +62,13 @@ export default function Search({ searchInput, onSearch }) {
                   <button>Name Z-A</button>
                 </li>
                 <li className="rounded-xl border border-neutral-800/80 bg-neutral-900/80 px-4 py-2 text-xs font-semibold uppercase tracking-wide text-neutral-300 transition hover:border-blue-500 hover:text-white">
-                  Date Newest
+                  <button>Date Newest</button>
                 </li>
                 <li className="rounded-xl border border-neutral-800/80 bg-neutral-900/80 px-4 py-2 text-xs font-semibold uppercase tracking-wide text-neutral-300 transition hover:border-blue-500 hover:text-white">
-                Date Oldest
-              </li>
-            </ul>
+                  <button>Date Oldest</button>
+                </li>
+              </ul>
+            )}
           </div>
         </div>
       </section>
