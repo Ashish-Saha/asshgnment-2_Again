@@ -9,16 +9,18 @@ import Search from "./Search";
 export default function BookmarkList({ valtList, ontoggle }) {
   const [searchInput, setSearchInput] = useState("");
 
-  const filterSearch = [...valtList].filter(
-    (item) =>
-      item.userName.toLowerCase().includes(searchInput.toLowerCase()) ||
-      item.catagory.toLowerCase().includes(searchInput.toLowerCase()) ||
-      getDomainName(item.url).toLowerCase().includes(searchInput.toLowerCase()),
-  );
+  // const filterSearch = [...valtList].filter(
+  //   (item) =>
+  //     item.userName.toLowerCase().includes(searchInput.toLowerCase()) ||
+  //     item.catagory.toLowerCase().includes(searchInput.toLowerCase()) ||
+  //     getDomainName(item.url).toLowerCase().includes(searchInput.toLowerCase()),
+  // );
 
+  const filterSearch = [...valtList].sort((a, b) => {
+    console.log("click");
 
-
-  
+    return getDomainName(a.url) - getDomainName(b.url);
+  });
 
   return (
     <>

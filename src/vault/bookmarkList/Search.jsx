@@ -54,7 +54,7 @@ export default function Search({ searchInput, onSearch }) {
             </button>
 
             {showSortOptions && (
-              <ul className="absolute top-17 rounded-xl border border-neutral-800/80 bg-neutral-900/80 px-4 py-2 text-xs font-semibold uppercase tracking-wide text-neutral-300 transition">
+              <ul className="absolute sm:top-31 lg:top-17 xl:top-10 rounded-xl border border-neutral-800/80 bg-neutral-900/80 px-4 py-2 text-xs font-semibold uppercase tracking-wide text-neutral-300 transition">
                 <li className="rounded-xl border border-neutral-800/80 bg-neutral-900/80 px-4 py-2 text-xs font-semibold uppercase tracking-wide text-neutral-300 transition hover:border-blue-500 hover:text-white">
                   <button>Name A-Z</button>
                 </li>
