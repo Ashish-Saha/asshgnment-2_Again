@@ -22,7 +22,6 @@ export default function BookMarkForm({ onAddValt }) {
   const [formData, setFormData] = useState(defaultValue);
   const [error, setError] = useState({});
 
-
   const handleformChange = (eventTarget) => {
     const name = eventTarget.name;
     const value = eventTarget.value;
@@ -32,6 +31,7 @@ export default function BookMarkForm({ onAddValt }) {
       id: crypto.randomUUID(),
       [name]: value,
     });
+    
   };
 
   const handleClearForm = () => {
@@ -47,22 +47,34 @@ export default function BookMarkForm({ onAddValt }) {
 
           <div className="space-y-6">
             <div className="grid grid-cols-1 gap-6 lg:grid-cols-3">
-              <FormUrl onFormChange={handleformChange} formData={formData} error = {error}/>
+              <FormUrl
+                onFormChange={handleformChange}
+                formData={formData}
+                error={error}
+              />
               <FormFavColor
                 onFormChange={handleformChange}
                 formData={formData}
-                error = {error}
+                error={error}
               />
               <FormCategory
                 onFormChange={handleformChange}
                 formData={formData}
-                error = {error}
+                error={error}
               />
             </div>
 
             <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
-              <UserName onFormChange={handleformChange} formData={formData} error = {error}/>
-              <Password onFormChange={handleformChange} formData={formData} error = {error}/>
+              <UserName
+                onFormChange={handleformChange}
+                formData={formData}
+                error={error}
+              />
+              <Password
+                onFormChange={handleformChange}
+                formData={formData}
+                error={error}
+              />
             </div>
           </div>
 

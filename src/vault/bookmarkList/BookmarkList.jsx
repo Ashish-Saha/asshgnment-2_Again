@@ -59,7 +59,7 @@ export default function BookmarkList({ valtList, ontoggle }) {
           />
 
           <div className="grid grid-cols-1 gap-6 md:grid-cols-2 xl:grid-cols-3">
-            {filterSearch.map((valt) => (
+            {filterSearch.length === 0 ? (<p className="text-center col-span-full text-gray-400">Not Found Data</p>) :  filterSearch.map((valt) => (
               <article
                 key={valt.id}
                 className="rounded-3xl border border-neutral-800 bg-neutral-900/70 p-6 shadow-2xl shadow-black/30 transition hover:-translate-y-1 hover:border-blue-500/60 hover:shadow-blue-500/20"
