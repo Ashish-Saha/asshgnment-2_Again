@@ -8,6 +8,7 @@ import Search from "./Search";
 
 export default function BookmarkList({ valtList, ontoggle }) {
   const [searchInput, setSearchInput] = useState("");
+  const [sortType, setSortType] = useState("");
 
   // const filterSearch = [...valtList].filter(
   //   (item) =>
@@ -16,17 +17,46 @@ export default function BookmarkList({ valtList, ontoggle }) {
   //     getDomainName(item.url).toLowerCase().includes(searchInput.toLowerCase()),
   // );
 
-  const filterSearch = [...valtList].sort((a, b) => {
-    console.log("click");
+  const filterSearch = [...valtList]
+    .sort((a, b) => {
+      const dominA = getDomainName(a.url);
+      const dominB = getDomainName(b.url);
 
-    return getDomainName(a.url) - getDomainName(b.url);
-  });
+      if (sortType === "a-z") {
+        return dominA.localeCompare(dominB);
+      } else if (sortType === "z-a") {
+        return dominB.localeCompare(dominA);
+      } else if (sortType === "dateOld") {
+        return a.createdAt.localeCompare(b.createdAt);
+      } else if (sortType === "dateNew") {
+        return b.createdAt.localeCompare(a.createdAt);
+      }
+
+      return 0
+
+    })
+    .filter(
+      (item) =>
+        item.userName.toLowerCase().includes(searchInput.toLowerCase()) ||
+        item.catagory.toLowerCase().includes(searchInput.toLowerCase()) ||
+        getDomainName(item.url)
+          .toLowerCase()
+          .includes(searchInput.toLowerCase()),
+    );
+
+  const handleSortClick = (orderType) => {
+    setSortType(orderType);
+  };
 
   return (
     <>
       <main className="p-8">
         <div className="max-w-7xl mx-auto space-y-10 px-4">
-          <Search searchInput={searchInput} onSearch={setSearchInput} />
+          <Search
+            searchInput={searchInput}
+            onSearch={setSearchInput}
+            onSortClick={handleSortClick}
+          />
 
           <div className="grid grid-cols-1 gap-6 md:grid-cols-2 xl:grid-cols-3">
             {filterSearch.map((valt) => (

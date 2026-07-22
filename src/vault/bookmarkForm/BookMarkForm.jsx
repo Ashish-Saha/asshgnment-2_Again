@@ -16,6 +16,7 @@ export default function BookMarkForm({ onAddValt }) {
     userName: "",
     password: "",
     isMasking: false,
+    createdAt: new Date().toISOString(),
   };
 
   const [formData, setFormData] = useState(defaultValue);

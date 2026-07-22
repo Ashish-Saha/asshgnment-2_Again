@@ -11,6 +11,7 @@ export default function Vault() {
     userName: "john.doe@email.com",
     password: "12345600",
     isMasking: false,
+    createdAt: new Date().toISOString()
   };
 
   const [valtList, setVaultList] = useState([initialValue]);
